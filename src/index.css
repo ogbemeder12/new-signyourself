@@ -1,0 +1,340 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+ 
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+ 
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+ 
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+ 
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+ 
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+ 
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+ 
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+ 
+    --radius: 0.5rem;
+  }
+ 
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+ 
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+ 
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+ 
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+ 
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+ 
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+ 
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+ 
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+ 
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+  }
+}
+ 
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Enhanced Rich Text Editor Styles */
+.prose-editor-container {
+  @apply transition-all duration-300;
+}
+
+.prose-editor-container .ql-editor {
+  min-height: 200px;
+  font-size: 1rem;
+  line-height: 1.5;
+  @apply transition-all duration-300;
+}
+
+.prose-editor-container .ql-toolbar {
+  border-bottom: 1px solid #e2e8f0;
+  padding: 8px;
+  background-color: #f8fafc;
+  @apply transition-all duration-300;
+}
+
+.prose-editor-container .ql-container {
+  font-family: inherit;
+}
+
+.prose-editor-container:focus-within {
+  @apply ring-2 ring-blue-500 border-transparent;
+}
+
+/* Enhanced Preview Styles */
+.preview-content {
+  font-family: system-ui, -apple-system, sans-serif;
+  @apply transition-all duration-300;
+}
+
+.preview-content h1,
+.preview-content h2,
+.preview-content h3 {
+  margin-top: 1.5em;
+  margin-bottom: 0.75em;
+  line-height: 1.2;
+  @apply transition-all duration-300;
+}
+
+.preview-content p {
+  margin-bottom: 1.25em;
+  @apply transition-all duration-300;
+}
+
+.preview-content ul,
+.preview-content ol {
+  margin-left: 1.5em;
+  margin-bottom: 1.25em;
+}
+
+.preview-content li {
+  margin-bottom: 0.5em;
+}
+
+.preview-content code {
+  background-color: #f1f5f9;
+  padding: 0.2em 0.4em;
+  border-radius: 0.25em;
+  font-size: 0.875em;
+}
+
+.preview-content pre {
+  background-color: #1e293b;
+  color: #e2e8f0;
+  padding: 1em;
+  border-radius: 0.5em;
+  overflow-x: auto;
+  margin: 1.5em 0;
+}
+
+.preview-content blockquote {
+  border-left: 4px solid #e2e8f0;
+  padding-left: 1em;
+  margin: 1.5em 0;
+  color: #64748b;
+}
+
+/* Enhanced Loading States */
+.loading-spinner {
+  @apply animate-spin text-blue-500;
+}
+
+/* Success Animation */
+.save-success {
+  animation: success-pulse 1s ease-in-out;
+}
+
+@keyframes success-pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.02);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Enhanced Transitions */
+.transition-all {
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 300ms;
+}
+
+/* Hover Effects */
+.hover-scale {
+  @apply transition-transform duration-200;
+}
+
+.hover-scale:hover {
+  @apply transform scale-105;
+}
+
+/* Loading Skeleton Animation */
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: .5;
+  }
+}
+
+/* Enhanced Editor Animations */
+.editor-fade-in {
+  animation: editorFadeIn 0.3s ease-in-out;
+}
+
+@keyframes editorFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Enhanced Button Animations */
+.button-hover {
+  @apply transition-all duration-200;
+}
+
+.button-hover:hover {
+  @apply transform scale-105 shadow-md;
+}
+
+/* Enhanced Toast Animations */
+.toast-slide-in {
+  animation: toastSlideIn 0.3s ease-out;
+}
+
+@keyframes toastSlideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Enhanced Error States */
+.error-shake {
+  animation: errorShake 0.5s ease-in-out;
+}
+
+@keyframes errorShake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  75% {
+    transform: translateX(5px);
+  }
+}
+
+/* Enhanced Focus States */
+.focus-ring {
+  @apply transition-all duration-200;
+}
+
+.focus-ring:focus {
+  @apply ring-2 ring-blue-500 ring-offset-2;
+}
+
+/* Enhanced Loading Skeleton */
+.skeleton {
+  @apply animate-pulse bg-gray-200 rounded;
+}
+
+.skeleton-text {
+  @apply h-4 bg-gray-200 rounded;
+}
+
+.skeleton-circle {
+  @apply rounded-full bg-gray-200;
+}
+
+/* Enhanced Micro-interactions */
+.micro-bounce {
+  animation: microBounce 0.3s ease-in-out;
+}
+
+@keyframes microBounce {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+/* Enhanced Form Feedback */
+.input-success {
+  @apply border-green-500 bg-green-50;
+}
+
+.input-error {
+  @apply border-red-500 bg-red-50;
+}
+
+/* Enhanced Tooltips */
+.tooltip {
+  @apply invisible absolute;
+}
+
+.has-tooltip:hover .tooltip {
+  @apply visible z-50;
+}
+
+/* Enhanced Scrollbar */
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #CBD5E1 #F1F5F9;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #F1F5F9;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #CBD5E1;
+  border-radius: 4px;
+}
